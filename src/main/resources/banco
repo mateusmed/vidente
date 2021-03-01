@@ -1,0 +1,276 @@
+create database inteligencia;
+
+use inteligencia;
+
+create table item(
+id int not null,
+nome varchar(30) not null,
+regra varchar(25) not null,
+constraint pk_id_item primary key(id)
+);
+
+
+create table pergunta(
+id varchar(10) not null,
+nome_pergunta varchar(100) not null,
+id_verde int not null,
+constraint pk_id_pergunta primary key(id)
+);
+
+create table regra(
+id int not null auto_increment,
+presente varchar(10) not null,
+decisao varchar(10) not null,
+futuro varchar(10),
+constraint pk_id_regra primary key(id),
+constraint fk_regra_presente foreign key (presente) references pergunta(id)
+);
+
+
+-- INSERT NA TABELA ITEM
+insert into item (id, nome, regra) values (1, 'bateria', '011111');
+insert into item (id, nome, regra) values (2, 'tamborim', '011110');
+
+insert into item (id, nome, regra) values (3, 'chocalho', '011100');
+insert into item (id, nome, regra) values (4, 'bongo', '011101');
+
+insert into item (id, nome, regra) values (5, 'flauta', '011011');
+insert into item (id, nome, regra) values (6, 'gaita', '011010');
+
+insert into item (id, nome, regra) values (7, 'piano', '011001');
+insert into item (id, nome, regra) values (8, 'harpa', '011000');
+
+insert into item (id, nome, regra) values (9, 'telefone', '010110');
+insert into item (id, nome, regra) values (10, 'smartphone', '010111');
+
+insert into item (id, nome, regra) values (11, 'radio', '010100');
+insert into item (id, nome, regra) values (12, 'televisao', '010101');
+
+insert into item (id, nome, regra) values (13, 'carro', '010010');
+insert into item (id, nome, regra) values (14, 'moto', '010011');
+
+insert into item (id, nome, regra) values (15, 'panela de pressao', '010000');
+insert into item (id, nome, regra) values (16, 'chaleira', '010001');
+
+insert into item (id, nome, regra) values (17, 'aliança', '00101');
+insert into item (id, nome, regra) values (18, 'pulseira', '00100');
+
+insert into item (id, nome, regra) values (19, 'casaco', '00111');
+insert into item (id, nome, regra) values (20, 'camiseta', '00110');
+
+insert into item (id, nome, regra) values (21, 'faca', '00011');
+insert into item (id, nome, regra) values (22, 'punhal', '00010');
+
+insert into item (id, nome, regra) values (23, 'mesa', '00000');
+insert into item (id, nome, regra) values (24, 'cadeira', '00001');
+
+insert into item (id, nome, regra) values (25, 'Zebra', '111111');
+insert into item (id, nome, regra) values (26, 'Vaca', '111110');
+
+insert into item (id, nome, regra) values (27, 'Tigre', '111101');
+insert into item (id, nome, regra) values (28, 'Cachorro', '111100');
+
+insert into item (id, nome, regra) values (29, 'Macaco', '111001');
+insert into item (id, nome, regra) values (30, 'Canguru', '111010');
+
+insert into item (id, nome, regra) values (31, 'tiranossauro rex', '111011');
+insert into item (id, nome, regra) values (32, 'cobra', '111010');
+
+insert into item (id, nome, regra) values (33, 'tubarao branco', '110111');
+insert into item (id, nome, regra) values (34, 'salmao', '110110');
+
+insert into item (id, nome, regra) values (35, 'baleia', '110101');
+insert into item (id, nome, regra) values (36, 'pinguin', '110100');
+
+insert into item (id, nome, regra) values (37, 'beija-flor', '110001');
+insert into item (id, nome, regra) values (38, 'pica-pau', '110000');
+
+insert into item (id, nome, regra) values (39, 'pelicano', '110011');
+insert into item (id, nome, regra) values (40, 'aguia', '110010');
+
+insert into item (id, nome, regra) values (41, 'abelha', '101111');
+insert into item (id, nome, regra) values (42, 'borboleta', '101110');
+
+insert into item (id, nome, regra) values (43, 'cupim', '101101');
+insert into item (id, nome, regra) values (44, 'mosca', '101100');
+
+insert into item (id, nome, regra) values (45, 'Barbeiro ', '101011');
+insert into item (id, nome, regra) values (46, 'Piolho', '101010');
+
+insert into item (id, nome, regra) values (47, 'Bicho-Pau', '101001');
+insert into item (id, nome, regra) values (48, 'Formiga', '101000');
+
+insert into item (id, nome, regra) values (49, 'Minhoca', '1001');
+insert into item (id, nome, regra) values (50, 'Lagartixa', '1000');
+
+
+-- INSERT NA TABELA PERGUNTA
+insert into pergunta (id, nome_pergunta, id_verde) values ('A', 'A opção escolhida possui vida?', 0);
+insert into pergunta (id, nome_pergunta, id_verde) values ('B', 'Reproduz som ou serve para reproduzir som?', 0);
+insert into pergunta (id, nome_pergunta, id_verde) values ('C', 'É um animal vertebrado?', 0);
+insert into pergunta (id, nome_pergunta, id_verde) values ('D', 'É um instrumento musical?', 0);
+insert into pergunta (id, nome_pergunta, id_verde) values ('E', 'É um objeto que utilizamos no corpo?', 0);
+insert into pergunta (id, nome_pergunta, id_verde) values ('F', 'É um animal Terrestre?', 0);
+insert into pergunta (id, nome_pergunta, id_verde) values ('G', 'É um inseto?', 0);
+insert into pergunta (id, nome_pergunta, id_verde) values ('H', 'O item escolhido é um instrumento de percussão?', 1);
+insert into pergunta (id, nome_pergunta, id_verde) values ('I', 'O item escolhido é um eletrônico?', 1);
+insert into pergunta (id, nome_pergunta, id_verde) values ('J', 'É uma roupa?', 1);
+insert into pergunta (id, nome_pergunta, id_verde) values ('K', 'É um objeto cortante?', 1);
+insert into pergunta (id, nome_pergunta, id_verde) values ('L', 'É um animal quadrupede?', 1);
+insert into pergunta (id, nome_pergunta, id_verde) values ('M', 'É um animal Aquático?', 1);
+insert into pergunta (id, nome_pergunta, id_verde) values ('N', 'O item escolhido possui asa?', 1);
+insert into pergunta (id, nome_pergunta, id_verde) values ('O', 'O item escolhido vive no subterrâneo?', 1);
+insert into pergunta (id, nome_pergunta, id_verde) values ('P', 'É um instrumento que utiliza baqueta?', 0);
+insert into pergunta (id, nome_pergunta, id_verde) values ('Q', 'É um instrumento de sopro?', 0);
+insert into pergunta (id, nome_pergunta, id_verde) values ('R', 'É um objeto de comunicação bidirecional?', 0);
+insert into pergunta (id, nome_pergunta, id_verde) values ('S', 'É um meio de transporte?', 0);
+insert into pergunta (id, nome_pergunta, id_verde) values ('T', 'É um animal herbivoro?', 0);
+insert into pergunta (id, nome_pergunta, id_verde) values ('U', 'É um Réptil?', 0);
+insert into pergunta (id, nome_pergunta, id_verde) values ('V', 'Respira por brânquias?', 0);
+insert into pergunta (id, nome_pergunta, id_verde) values ('W', 'Se alimenta de peixe?', 0);
+insert into pergunta (id, nome_pergunta, id_verde) values ('X', 'O inseto escolhido suga o néctar das flores?', 0);
+insert into pergunta (id, nome_pergunta, id_verde) values ('Y', 'O inseto escolhido se alimenta de sangue?', 0);
+insert into pergunta (id, nome_pergunta, id_verde) values ('P1', 'É um instrumento que utiliza pratos?', 0);
+insert into pergunta (id, nome_pergunta, id_verde) values ('P2', 'Esse instrumento é composto por 2 tambores?', 0);
+insert into pergunta (id, nome_pergunta, id_verde) values ('Q1', 'Sua nota é alterada através das posições dos dedos?', 0);
+insert into pergunta (id, nome_pergunta, id_verde) values ('Q2', 'Pode-se utilizar pedal nesse instrumento?', 0);
+insert into pergunta (id, nome_pergunta, id_verde) values ('R1', 'Esse objeto pode acessar a internet?', 0);
+insert into pergunta (id, nome_pergunta, id_verde) values ('R2', 'Esse objeto transmite imagem?', 0);
+insert into pergunta (id, nome_pergunta, id_verde) values ('S1', 'Esse veículo possui guidão?', 0);
+insert into pergunta (id, nome_pergunta, id_verde) values ('S2', 'Esse objeto é utilizado para fazer chá ou café?', 0);
+insert into pergunta (id, nome_pergunta, id_verde) values ('J1', 'É um acessório que representa compromisso?', 0);
+insert into pergunta (id, nome_pergunta, id_verde) values ('J2', 'É uma roupa para inverno?', 0);
+insert into pergunta (id, nome_pergunta, id_verde) values ('K1', 'É utilizado na cozinha?', 0);
+insert into pergunta (id, nome_pergunta, id_verde) values ('K2', 'É um objeto utilizado para sentar?', 0);
+insert into pergunta (id, nome_pergunta, id_verde) values ('T1', 'É um animal listrado?', 0);
+insert into pergunta (id, nome_pergunta, id_verde) values ('T2', 'É um felino?', 0);
+insert into pergunta (id, nome_pergunta, id_verde) values ('U1', 'Escala em árvores?', 0);
+insert into pergunta (id, nome_pergunta, id_verde) values ('U2', 'Foi extinto?', 0);
+insert into pergunta (id, nome_pergunta, id_verde) values ('V1', 'É um animal carnívoro?', 0);
+insert into pergunta (id, nome_pergunta, id_verde) values ('V2', 'É um animal mamífero?', 0);
+
+insert into pergunta (id, nome_pergunta, id_verde) values ('W1', 'É um pássaro capaz de voar em marcha ré?', 0);
+insert into pergunta (id, nome_pergunta, id_verde) values ('W2', 'Possui um pescoço longo?', 0);
+insert into pergunta (id, nome_pergunta, id_verde) values ('X1', 'O inseto escolhido possui ferrão?', 0);
+insert into pergunta (id, nome_pergunta, id_verde) values ('X2', 'O inseto escolhido se alimenta de madeira?', 0);
+insert into pergunta (id, nome_pergunta, id_verde) values ('Y1', 'O inseto escolhido transmite a doença de chagas?', 0);
+insert into pergunta (id, nome_pergunta, id_verde) values ('Y2', 'O inseto escolhido se parece com um graveto?', 0);
+
+
+-- INSERT NA TABELA REGRA
+
+insert into regra (presente, decisao, futuro) values ('A', '0', 'B');
+insert into regra (presente, decisao, futuro) values ('A', '1', 'C');
+insert into regra (presente, decisao, futuro) values ('B', '0', 'E');
+insert into regra (presente, decisao, futuro) values ('B', '1', 'D');
+insert into regra (presente, decisao, futuro) values ('C', '0', 'G');
+insert into regra (presente, decisao, futuro) values ('C', '1', 'F');
+insert into regra (presente, decisao, futuro) values ('D', '0', 'I');
+insert into regra (presente, decisao, futuro) values ('D', '1', 'H');
+insert into regra (presente, decisao, futuro) values ('E', '0', 'K');
+insert into regra (presente, decisao, futuro) values ('E', '1', 'J');
+insert into regra (presente, decisao, futuro) values ('F', '0', 'M');
+insert into regra (presente, decisao, futuro) values ('F', '1', 'L');
+insert into regra (presente, decisao, futuro) values ('G', '0', 'O');
+insert into regra (presente, decisao, futuro) values ('G', '1', 'N');
+insert into regra (presente, decisao, futuro) values ('H', '0', 'Q');
+insert into regra (presente, decisao, futuro) values ('H', '1', 'P');
+insert into regra (presente, decisao, futuro) values ('I', '0', 'S');
+insert into regra (presente, decisao, futuro) values ('I', '1', 'R');
+insert into regra (presente, decisao, futuro) values ('J', '0', 'J1');
+insert into regra (presente, decisao, futuro) values ('J', '1', 'J2');
+insert into regra (presente, decisao, futuro) values ('K', '0', 'K2');
+insert into regra (presente, decisao, futuro) values ('K', '1', 'K1');
+insert into regra (presente, decisao, futuro) values ('L', '0', 'U');
+insert into regra (presente, decisao, futuro) values ('L', '1', 'T');
+insert into regra (presente, decisao, futuro) values ('M', '0', 'W');
+insert into regra (presente, decisao, futuro) values ('M', '1', 'V');
+insert into regra (presente, decisao, futuro) values ('N', '0', 'Y');
+insert into regra (presente, decisao, futuro) values ('N', '1', 'X');
+insert into regra (presente, decisao, futuro) values ('O', '0', '50');
+insert into regra (presente, decisao, futuro) values ('O', '1', '49');
+insert into regra (presente, decisao, futuro) values ('P', '0', 'P2');
+insert into regra (presente, decisao, futuro) values ('P', '1', 'P1');
+insert into regra (presente, decisao, futuro) values ('Q', '0', 'Q2');
+insert into regra (presente, decisao, futuro) values ('Q', '1', 'Q1');
+insert into regra (presente, decisao, futuro) values ('R', '0', 'R2');
+insert into regra (presente, decisao, futuro) values ('R', '1', 'R1');
+insert into regra (presente, decisao, futuro) values ('S', '0', 'S2');
+insert into regra (presente, decisao, futuro) values ('S', '1', 'S1');
+insert into regra (presente, decisao, futuro) values ('T', '0', 'T2');
+insert into regra (presente, decisao, futuro) values ('T', '1', 'T1');
+insert into regra (presente, decisao, futuro) values ('U', '0', 'U1');
+insert into regra (presente, decisao, futuro) values ('U', '1', 'U2');
+insert into regra (presente, decisao, futuro) values ('V', '0', 'V2');
+insert into regra (presente, decisao, futuro) values ('V', '1', 'V1');
+insert into regra (presente, decisao, futuro) values ('W', '0', 'W1');
+insert into regra (presente, decisao, futuro) values ('W', '1', 'W2');
+insert into regra (presente, decisao, futuro) values ('X', '0', 'X2');
+insert into regra (presente, decisao, futuro) values ('X', '1', 'X1');
+insert into regra (presente, decisao, futuro) values ('Y', '0', 'Y2');
+insert into regra (presente, decisao, futuro) values ('Y', '1', 'Y1');
+insert into regra (presente, decisao, futuro) values ('P1', '0', '2');
+insert into regra (presente, decisao, futuro) values ('P1', '1', '1');
+insert into regra (presente, decisao, futuro) values ('P2', '0', '3');
+insert into regra (presente, decisao, futuro) values ('P2', '1', '4');
+insert into regra (presente, decisao, futuro) values ('Q1', '0', '6');
+insert into regra (presente, decisao, futuro) values ('Q1', '1', '5');
+insert into regra (presente, decisao, futuro) values ('Q2', '0', '8');
+insert into regra (presente, decisao, futuro) values ('Q2', '1', '7');
+insert into regra (presente, decisao, futuro) values ('R1', '0', '9');
+insert into regra (presente, decisao, futuro) values ('R1', '1', '10');
+insert into regra (presente, decisao, futuro) values ('R2', '0', '11');
+insert into regra (presente, decisao, futuro) values ('R2', '1', '12');
+insert into regra (presente, decisao, futuro) values ('S1', '0', '13');
+insert into regra (presente, decisao, futuro) values ('S1', '1', '14');
+insert into regra (presente, decisao, futuro) values ('S2', '0', '15');
+insert into regra (presente, decisao, futuro) values ('S2', '1', '16');
+insert into regra (presente, decisao, futuro) values ('J1', '0', '18');
+insert into regra (presente, decisao, futuro) values ('J1', '1', '17');
+insert into regra (presente, decisao, futuro) values ('J2', '0', '20');
+insert into regra (presente, decisao, futuro) values ('J2', '1', '19');
+insert into regra (presente, decisao, futuro) values ('K1', '0', '22');
+insert into regra (presente, decisao, futuro) values ('K1', '1', '21');
+insert into regra (presente, decisao, futuro) values ('K2', '0', '23');
+insert into regra (presente, decisao, futuro) values ('K2', '1', '24');
+insert into regra (presente, decisao, futuro) values ('T1', '0', '26');
+insert into regra (presente, decisao, futuro) values ('T1', '1', '25');
+insert into regra (presente, decisao, futuro) values ('T2', '0', '28');
+insert into regra (presente, decisao, futuro) values ('T2', '1', '27');
+insert into regra (presente, decisao, futuro) values ('U1', '0', '30');
+insert into regra (presente, decisao, futuro) values ('U1', '1', '29');
+insert into regra (presente, decisao, futuro) values ('U2', '0', '32');
+insert into regra (presente, decisao, futuro) values ('U2', '1', '31');
+insert into regra (presente, decisao, futuro) values ('V1', '0', '34');
+insert into regra (presente, decisao, futuro) values ('V1', '1', '33');
+insert into regra (presente, decisao, futuro) values ('V2', '0', '36');
+insert into regra (presente, decisao, futuro) values ('V2', '1', '35');
+insert into regra (presente, decisao, futuro) values ('W1', '0', '38');
+insert into regra (presente, decisao, futuro) values ('W1', '1', '37');
+insert into regra (presente, decisao, futuro) values ('W2', '0', '40');
+insert into regra (presente, decisao, futuro) values ('W2', '1', '39');
+insert into regra (presente, decisao, futuro) values ('X1', '0', '42');
+insert into regra (presente, decisao, futuro) values ('X1', '1', '41');
+insert into regra (presente, decisao, futuro) values ('X2', '0', '44');
+insert into regra (presente, decisao, futuro) values ('X2', '1', '43');
+insert into regra (presente, decisao, futuro) values ('Y1', '0', '46');
+insert into regra (presente, decisao, futuro) values ('Y1', '1', '45');
+insert into regra (presente, decisao, futuro) values ('Y2', '0', '48');
+insert into regra (presente, decisao, futuro) values ('Y2', '1', '47');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
